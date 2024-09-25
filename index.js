@@ -6,10 +6,8 @@ const donateButtons = document.querySelectorAll('.donate-btn');
 donateButtons.forEach(button => {
   button.addEventListener('click', function () {
     const card = button.closest('.card');
-
     const donationInput = card.querySelector('input[type="number"]');
     const donationAmountSpan = card.querySelector('.donation-amount');
-
     const donationAmount = parseFloat(donationInput.value);
 
     // Validate the donation amount
@@ -40,17 +38,11 @@ donateButtons.forEach(button => {
 function addToHistory(donationAmount, causeTitle) {
   const historySection = document.getElementById('history-section');
   const currentDateTime = new Date().toLocaleString();
-
-  // Create a new history entry
   const historyEntry = document.createElement('p');
   historyEntry.textContent = `${currentDateTime} - Donated ${donationAmount} BDT to "${causeTitle}"`;
-
-  // Show the history section if it was hidden
   if (historySection.classList.contains('hidden')) {
     historySection.classList.remove('hidden');
   }
-
-  // Append the history entry to the history section
   historySection.appendChild(historyEntry);
 }
 
@@ -64,11 +56,9 @@ document.querySelectorAll('.modal button').forEach(closeButton => {
 // Toggle between donation and history sections
 document.addEventListener("DOMContentLoaded", function() {
   const donationBtn = document.getElementById("donationBtn");
-  const historyBtn = document.querySelector(".btn-md:nth-child(2)"); // History button
+  const historyBtn = document.querySelector(".btn-md:nth-child(2)"); 
   const historySection = document.getElementById("history-section");
   const cardSection = document.querySelector("section");
-
-  // Initial visibility setup
   historySection.classList.add("hidden");
 
   // Toggle to show donation section and hide history
@@ -78,27 +68,12 @@ document.addEventListener("DOMContentLoaded", function() {
     donationBtn.classList.add("bg-[#B4F461]");
     historyBtn.classList.remove("bg-[#B4F461]");
   });
-
-  // Toggle to show history section and hide donation
   historyBtn.addEventListener("click", () => {
     historySection.classList.remove("hidden");
     cardSection.classList.add("hidden");
     historyBtn.classList.add("bg-[#B4F461]");
     donationBtn.classList.remove("bg-[#B4F461]");
-    
-    // Example History Data (this part will be replaced with actual history in your app)
-    if (historySection.innerHTML.trim() === '') {
-      historySection.innerHTML = '<p>No donations made yet!</p>';
-    }
-  });
-  historyBtn.addEventListener("click", () => {
-    historySection.classList.remove("hidden");
-    cardSection.classList.add("hidden");
-    historyBtn.classList.add("bg-[#B4F461]");
-    donationBtn.classList.remove("bg-[#B4F461]");
-  
-    // Check if history exists
-    if (historySection.innerHTML.trim() === '') {
+        if (historySection.innerHTML.trim() === '') {
       historySection.innerHTML = '<p>No donations made yet!</p>';
     }
   });
