@@ -91,4 +91,16 @@ document.addEventListener("DOMContentLoaded", function() {
       historySection.innerHTML = '<p>No donations made yet!</p>';
     }
   });
+  historyBtn.addEventListener("click", () => {
+    historySection.classList.remove("hidden");
+    cardSection.classList.add("hidden");
+    historyBtn.classList.add("bg-[#B4F461]");
+    donationBtn.classList.remove("bg-[#B4F461]");
+  
+    // Check if history exists
+    if (historySection.innerHTML.trim() === '') {
+      historySection.innerHTML = '<p>No donations made yet!</p>';
+    }
+  });
+  
 });
