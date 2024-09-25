@@ -23,4 +23,46 @@ notification.classList.remove("hidden");
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get the buttons by their IDs
+const donationBtn = document.getElementById("donationBtn");
+const historyBtn = document.querySelector(".btn:not(#donationBtn)");
+
+// Function to handle the active state
+function toggleActive(button1, button2) {
+  button1.classList.add("active");
+  button1.style.backgroundColor = "#B4F461"; // Change to active color
+
+  button2.classList.remove("active");
+  button2.style.backgroundColor = ""; // Reset to default color
+}
+
+// Add click event listeners for each button
+donationBtn.addEventListener("click", () => {
+  toggleActive(donationBtn, historyBtn);
+});
+
+historyBtn.addEventListener("click", () => {
+  toggleActive(historyBtn, donationBtn);
+});
+
+
+
 });
